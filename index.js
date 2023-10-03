@@ -19,7 +19,19 @@ app.use(cors());
 
 app.get("/", (req, res) => {
   try {
-    console.log(req.query);
+    console.log("New API ping:");
+    if (req.query.country !== "USA") {
+      console.log({
+        country: req.query.country,
+        city: req.query.city,
+      });
+    } else if (req.query.country === "USA") {
+      console.log({
+        country: req.query.country,
+        state: req.query.state,
+        city: req.query.city,
+      });
+    }
     getGeoData(req.query).then(() => {
       getCurrentWeather(latitude, longitude).then(() => {
         getForecast(latitude, longitude).then(() => {
