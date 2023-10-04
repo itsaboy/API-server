@@ -9,7 +9,7 @@ let latitude;
 let longitude;
 
 const getGeoData = async (data) => {
-  console.log("Geolocation API request");
+  console.log("Geolocation API request...");
 
   location = "";
   weather = "";
@@ -32,6 +32,8 @@ const getGeoData = async (data) => {
 
       latitude = geoData[0].lat;
       longitude = geoData[0].lon;
+
+      console.log("Geolocation API success: outside USA");
     } else {
       console.log(`${res.status} status`);
     }
@@ -49,8 +51,11 @@ const getGeoData = async (data) => {
         state: data.state,
         city: geoData[0].name,
       };
+
       latitude = geoData[0].lat;
       longitude = geoData[0].lon;
+
+      console.log("Geolocation API success: inside USA");
     } else {
       console.log(`${res.status} status`);
     }
@@ -58,7 +63,7 @@ const getGeoData = async (data) => {
 };
 
 const getCurrentWeather = async (latitude, longitude) => {
-  console.log("Current weather API request");
+  console.log("Current weather API request...");
 
   const req = `${endpoint}/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${key}`;
   const res = await fetch(req);
@@ -66,6 +71,7 @@ const getCurrentWeather = async (latitude, longitude) => {
 
   if (res.status === 200) {
     weather = currentData;
+    console.log("Current weather API success");
   } else {
     console.log("Current weather API error");
     console.log(`${res.status} status`);
@@ -73,7 +79,7 @@ const getCurrentWeather = async (latitude, longitude) => {
 };
 
 const getForecast = async (latitude, longitude) => {
-  console.log("5-day forecast API request");
+  console.log("5-day forecast API request...");
 
   const req = `${endpoint}/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=imperial&appid=${key}`;
   const res = await fetch(req);
@@ -81,6 +87,7 @@ const getForecast = async (latitude, longitude) => {
 
   if (res.status === 200) {
     forecast = forecastData;
+    console.log("5-day forecast API success");
   } else {
     console.log("5-day forecast API error");
     console.log(`${res.status} status`);

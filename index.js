@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 import cors from "cors";
 import {
   getGeoData,
@@ -17,9 +18,11 @@ const app = express();
 
 app.use(cors());
 
-app.get("/", (req, res) => {
+app.use(express.static(path.join(import.meta.dir, '/public')));
+
+app.get("/weather", (req, res) => {
   try {
-    console.log("New API ping:");
+    console.log("New weather API ping:");
     if (req.query.country !== "USA") {
       console.log({
         country: req.query.country,

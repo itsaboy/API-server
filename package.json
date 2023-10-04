@@ -7,9 +7,13 @@
   "module": "index.js",
   "type": "module",
   "devDependencies": {
-    "bun-types": "latest"
+    "bun-types": "latest",
+    "tailwindcss": "^3.3.3"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "build:css": "tailwindcss -i ./tailwind.css -o ./public/assets/css/style.css"
   }
 }
