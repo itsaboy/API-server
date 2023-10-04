@@ -7,28 +7,62 @@
     <title>API of All Trades</title>
     <link rel="stylesheet" href="./assets/css/layout.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="./assets/scripts/main.js" defer></script>
   </head>
   <body>
     <div class="body-container">
-      <header class="bg-gradient-to-b from-slate-900 to-slate-800">
+      <header
+        class="bg-gradient-to-b from-slate-900 to-slate-800 border-b-4 border-slate-200"
+      >
         <div class="header-container">
           <h1 class="text-6xl text-slate-200">API of All Trades</h1>
         </div>
       </header>
       <main class="bg-gradient-to-b from-slate-600 to-slate-400">
         <div class="main-container">
-          <section class="text-2xl">
-            <div class="openweather-container">
-              <a href="https://openweathermap.org/api/geocoding-api" target="_blank"
-                >Geolocation</a
+          <form
+            class="mx-auto my-12 w-96 h-96 text-2xl bg-gradient-to-t from gray-600 to-gray-400 border border-gray-800 rounded-lg shadow-lg shadow-black"
+          >
+            <div class="admin-container">
+              <div
+                class="flex rounded-md shadow-inner shadow-black justify-self-center self-end"
               >
-              <a href="https://openweathermap.org/current" target="_blank">Current Weather</a>
-              <a href="https://openweathermap.org/forecast5" target="_blank">5-day Forecast</a>
+                <span
+                  class="px-4 inline-flex items-center min-w-fit rounded-l-md border border-r-0 border-gray-200 bg-gray-900 text-sm text-gray-200 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400"
+                  >User:</span
+                >
+                <input
+                  type="text"
+                  class="py-3 px-4 pr-11 block w-full border-gray-200 shadow-black shadow-inner rounded-r-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 bg-slate-100 dark:border-gray-700 dark:text-gray-400"
+                />
+              </div>
+              <div
+                class="flex rounded-md shadow-inner shadow-black justify-self-center self-start"
+              >
+                <span
+                  class="px-4 inline-flex items-center min-w-fit rounded-l-md border border-r-0 border-gray-200 bg-gray-900 text-sm text-gray-200 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400"
+                  >Pass:</span
+                >
+                <input
+                  type="password"
+                  class="py-3 px-4 pr-11 block w-full border-gray-200 shadow-black shadow-inner rounded-r-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 bg-slate-100 dark:border-gray-700 dark:text-gray-400"
+                />
+              </div>
+              <div class="justify-self-center self-start">
+                <button
+                  type="button"
+                  class="py-3 px-4 w-24 inline-flex justify-center items-center gap-2 rounded-md bg-gray-100 border border-transparent font-semibold text-gray-800 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 ring-offset-white focus:ring-gray-800 focus:ring-offset-2 transition-all text-sm dark:bg-gray-700 dark:hover:bg-gray-900 dark:text-white"
+                >
+                  Login
+                </button>
+              </div>
             </div>
-          </section>
+          </form>
         </div>
       </main>
-      <footer class="bg-gradient-to-t from-slate-900 to-slate-800">
+      <footer
+        class="bg-gradient-to-t from-slate-900 to-slate-800 border-t-4 border-slate-950"
+      >
         <div class="footer-container">
           <h3 class="text-md text-slate-200">www.api-of-all-trades.net</h3>
         </div>

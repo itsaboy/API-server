@@ -16,9 +16,9 @@ const PORT = Bun.env.PORT;
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: "https://world-wide-weather.com/", crednetials: true }));
 
-app.use(express.static(path.join(import.meta.dir, '/public')));
+app.use(express.static(path.join(import.meta.dir, "/public")));
 
 app.get("/weather", (req, res) => {
   try {

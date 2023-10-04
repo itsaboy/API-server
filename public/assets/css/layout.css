@@ -20,14 +20,15 @@
   height: 100%;
 }
 
-.openweather-container {
+.admin-container {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(3, 1fr);
-  width: 50%;
-  height: 100%;
+  width: 75%;
+  height: 95%;
   place-items: center;
-  margin: 0 auto;
+  margin: 1rem auto;
+  gap: 1rem;
 }
 
 .footer-container {
