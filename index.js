@@ -13,18 +13,13 @@ import {
   longitude,
 } from "./fetch";
 
-const approvedOrigins = [
-  "https://world-wide-weather.com/",
-  "https://www.api-of-all-trades.net/",
-];
-
 const callLogs = [];
 
 const PORT = Bun.env.PORT;
 
 const app = express();
 
-app.use(cors({ origin: approvedOrigins, crednetials: true }));
+app.use(cors({ origin: "https://world-wide-weather.com/", crednetials: true }));
 
 app.use(express.static(path.join(import.meta.dir, "/public")));
 
