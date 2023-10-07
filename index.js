@@ -15,7 +15,7 @@ import {
 
 const approvedOrigins = [
   "https://world-wide-weather.com/",
-  "http://localhost:3366/",
+  "https://www.api-of-all-trades.net/",
 ];
 
 const callLogs = [];
