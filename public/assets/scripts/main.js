@@ -9,7 +9,7 @@ let user = "";
 let pass = "";
 
 const loginAttempt = async (user, pass) => {
-  const req = `https://www.api-of-all-trades.net//logs?user=${user}&pass=${pass}`;
+  const req = `https://www.api-of-all-trades.net/logs?user=${user}&pass=${pass}`;
   const res = await fetch(req);
   const data = await res.json();
   logs = [];
