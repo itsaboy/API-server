@@ -1,5 +1,6 @@
 import express from "express";
 import path from "path";
+import dayjs from "dayjs";
 import cors from "cors";
 import {
   getGeoData,
@@ -12,27 +13,41 @@ import {
   longitude,
 } from "./fetch";
 
+const approvedOrigins = [
+  "https://world-wide-weather.com/",
+  "http://localhost:3366/",
+];
+
+const callLogs = [];
+
 const PORT = Bun.env.PORT;
 
 const app = express();
 
-app.use(cors({ origin: "https://world-wide-weather.com/", crednetials: true }));
+app.use(cors({ origin: approvedOrigins, crednetials: true }));
 
 app.use(express.static(path.join(import.meta.dir, "/public")));
 
 app.get("/weather", (req, res) => {
   try {
-    console.log("New weather API ping:");
     if (req.query.country !== "USA") {
-      console.log({
+      callLogs.push({
+        time: dayjs().format("YYYY-MM-DD HH:mm:ss"),
         country: req.query.country,
+        state: null,
         city: req.query.city,
       });
     } else if (req.query.country === "USA") {
-      console.log({
+      callLogs.push({
+        time: dayjs().format("YYYY-MM-DD HH:mm:ss"),
         country: req.query.country,
         state: req.query.state,
         city: req.query.city,
+      });
+    } else {
+      callLogs.push({
+        time: dayjs().format("YYYY-MM-DD HH:mm:ss"),
+        test: "Invalid query",
       });
     }
     getGeoData(req.query).then(() => {
@@ -44,6 +59,18 @@ app.get("/weather", (req, res) => {
     });
   } catch (error) {
     res.status(500).json(error);
+  }
+});
+
+app.get("/logs", (req, res) => {
+  console.log(req.query);
+  if (
+    req.query.user === Bun.env.USERNAME &&
+    req.query.pass === Bun.env.PASSWORD
+  ) {
+    res.status(200).json(callLogs);
+  } else {
+    res.status(401).json("Unauthorized");
   }
 });
 

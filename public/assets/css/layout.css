@@ -20,6 +20,27 @@
   height: 100%;
 }
 
+.log-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  height: 100%;
+  width: 33%;
+  gap: 1rem;
+  margin: 0 auto;
+  overflow-y: scroll;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  height: 100%;
+  width: 33%;
+  place-items: center;
+  margin: 1rem auto;
+}
+
 .admin-container {
   display: grid;
   grid-template-columns: 1fr;
